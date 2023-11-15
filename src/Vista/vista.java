@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -19,9 +21,10 @@ public class vista extends JFrame {
 	public JPanel contentPane,panel_Buscador,panel_Mapa;
 	public JLabel labelNombreProvincia,labelIconoTiempo,labelTemperatura,
 	labelTMax,labelTMin;
-	public JComboBox boxCA,boxProvincia,boxDia;
+	public JComboBox <String> boxCA,boxProvincia,boxDia;
 	public JButton boton;
 	public JLabel labelImagenEspana;
+	public ArrayList<String> CA = new ArrayList();
 	/**
 	 * Launch the application.
 	 */
@@ -65,11 +68,13 @@ public class vista extends JFrame {
 		boxCA.setBounds(48, 252, 197, 21);
 		panel_Buscador.add(boxCA);
 		
+		
+		
 		 boxProvincia = new JComboBox();
 		boxProvincia.setBounds(48, 283, 197, 21);
 		panel_Buscador.add(boxProvincia);
 		
-		 boton = new JButton("New button");
+		 boton = new JButton("BUSCAR");
 		boton.setBounds(102, 314, 85, 21);
 		panel_Buscador.add(boton);
 		
@@ -115,4 +120,5 @@ public class vista extends JFrame {
 		
 		
 	}
+
 }
