@@ -7,45 +7,5 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/micha/OneDrive/Escritorio/Proyecto_Meteo_Cristian_Michael/Proy_Meteo/lib/Librerías JSON-20231115/jackson-annotations-2.9.9.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/micha/OneDrive/Escritorio/Proyecto_Meteo_Cristian_Michael/Proy_Meteo/lib/Librerías JSON-20231115/jackson-annotations-2.9.9-javadoc.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/micha/OneDrive/Escritorio/Proyecto_Meteo_Cristian_Michael/Proy_Meteo/lib/Librerías JSON-20231115/jackson-annotations-2.9.9-sources.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/micha/OneDrive/Escritorio/Proyecto_Meteo_Cristian_Michael/Proy_Meteo/lib/Librerías JSON-20231115/jackson-core-2.9.9.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/micha/OneDrive/Escritorio/Proyecto_Meteo_Cristian_Michael/Proy_Meteo/lib/Librerías JSON-20231115/jackson-core-2.9.9-javadoc.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/micha/OneDrive/Escritorio/Proyecto_Meteo_Cristian_Michael/Proy_Meteo/lib/Librerías JSON-20231115/jackson-core-2.9.9-sources.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/micha/OneDrive/Escritorio/Proyecto_Meteo_Cristian_Michael/Proy_Meteo/lib/Librerías JSON-20231115/jackson-databind-2.9.9.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/micha/OneDrive/Escritorio/Proyecto_Meteo_Cristian_Michael/Proy_Meteo/lib/Librerías JSON-20231115/jackson-databind-2.9.9-javadoc.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
