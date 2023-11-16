@@ -424,7 +424,7 @@ public class vista extends JFrame {
 		
 		labelImagenEspana = new JLabel("");
 		labelImagenEspana.setHorizontalAlignment(SwingConstants.CENTER);
-		labelImagenEspana.setIcon(new ImageIcon("C:\\Users\\Propietario\\Desktop\\Eclipse2\\METEO\\Eje_METEO\\src\\img\\mapaEspana-0000.jpg"));
+		labelImagenEspana.setIcon(new ImageIcon(vista.class.getResource("/img/mapaEspana-0000.jpg")));
 		labelImagenEspana.setBounds(0, 0, 569, 386);
 		panel_Mapa.add(labelImagenEspana);
 		
