@@ -13,15 +13,14 @@ import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class vista extends JFrame {
 
 	public JPanel contentPane,panel_Buscador,panel_Mapa;
-	public JLabel labelNombreProvincia,labelIconoTiempo,labelTemperatura,
-	labelTMax,labelTMin;
+	public JLabel labelNombreProvincia,labelIconoTiempo,labelTemperatura,labelTMax,labelTMin,labelImagenEspana;
 	public JComboBox boxCA,boxProvincia,boxDia;
 	public JButton boton;
-	public JLabel labelImagenEspana;
 	/**
 	 * Launch the application.
 	 */
@@ -51,6 +50,7 @@ public class vista extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("APP METEOROLOGICO");
+		lblNewLabel.setForeground(new Color(72, 209, 204));
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(149, 28, 302, 46);
@@ -99,7 +99,7 @@ public class vista extends JFrame {
 		panel_Buscador.add(labelTMin);
 		
 		 panel_Mapa = new JPanel();
-		panel_Mapa.setBounds(386, 84, 569, 363);
+		panel_Mapa.setBounds(386, 84, 569, 386);
 		contentPane.add(panel_Mapa);
 		panel_Mapa.setLayout(null);
 		
@@ -107,10 +107,10 @@ public class vista extends JFrame {
 		boxDia.setBounds(556, 480, 263, 21);
 		contentPane.add(boxDia);
 		
-		labelImagenEspana = new JLabel("New label");
-		labelImagenEspana.setIcon(new ImageIcon("C:\\Users\\micha\\OneDrive\\Escritorio\\Proyecto_Meteo_Cristian_Michael\\Proy_Meteo\\src\\img\\mapaEspana-0000.jpg"));
+		labelImagenEspana = new JLabel("");
 		labelImagenEspana.setHorizontalAlignment(SwingConstants.CENTER);
-		labelImagenEspana.setBounds(10, 10, 549, 343);
+		labelImagenEspana.setIcon(new ImageIcon("C:\\Users\\Propietario\\Desktop\\Eclipse2\\METEO\\Eje_METEO\\src\\img\\mapaEspana-0000.jpg"));
+		labelImagenEspana.setBounds(0, 0, 569, 386);
 		panel_Mapa.add(labelImagenEspana);
 		
 		
