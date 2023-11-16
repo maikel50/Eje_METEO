@@ -118,15 +118,16 @@ public class vista extends JFrame {
 		boxDia.setBounds(556, 480, 263, 21);
 		contentPane.add(boxDia);
 		
+		JLabel lblIconoCastillaLaMancha = new JLabel("");
+		lblIconoCastillaLaMancha.setIcon(new ImageIcon(vista.class.getResource("/img/sol.png")));
+		lblIconoCastillaLaMancha.setBounds(290, 184, 25, 25);
+		panel_Mapa.add(lblIconoCastillaLaMancha);
+		
 		labelImagenEspana = new JLabel("");
 		labelImagenEspana.setHorizontalAlignment(SwingConstants.CENTER);
 		labelImagenEspana.setIcon(new ImageIcon("C:\\Users\\Propietario\\Desktop\\Eclipse2\\METEO\\Eje_METEO\\src\\img\\mapaEspana-0000.jpg"));
 		labelImagenEspana.setBounds(0, 0, 569, 386);
 		panel_Mapa.add(labelImagenEspana);
-		
-		JLabel lblIconoCastillaLaMancha = new JLabel("");
-		lblIconoCastillaLaMancha.setBounds(273, 209, 25, 25);
-		panel_Mapa.add(lblIconoCastillaLaMancha);
 		
 		
 	}
