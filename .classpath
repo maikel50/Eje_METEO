@@ -2,52 +2,47 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="lib"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Propietario/Desktop/Trabajos (2º)/Acceso a Datos/Librerías JSON-20231031/jackson-annotations-2.9.9.jar">
+	<classpathentry kind="lib" path="C:/Users/micha/OneDrive/Escritorio/Proyecto_Meteo_Cristian_Michael/Proy_Meteo/lib/Librerías JSON-20231115/jackson-annotations-2.9.9.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Propietario/Desktop/Trabajos (2º)/Acceso a Datos/Librerías JSON-20231031/jackson-annotations-2.9.9-javadoc.jar">
+	<classpathentry kind="lib" path="C:/Users/micha/OneDrive/Escritorio/Proyecto_Meteo_Cristian_Michael/Proy_Meteo/lib/Librerías JSON-20231115/jackson-annotations-2.9.9-javadoc.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Propietario/Desktop/Trabajos (2º)/Acceso a Datos/Librerías JSON-20231031/jackson-annotations-2.9.9-sources.jar">
+	<classpathentry kind="lib" path="C:/Users/micha/OneDrive/Escritorio/Proyecto_Meteo_Cristian_Michael/Proy_Meteo/lib/Librerías JSON-20231115/jackson-annotations-2.9.9-sources.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Propietario/Desktop/Trabajos (2º)/Acceso a Datos/Librerías JSON-20231031/jackson-core-2.9.9.jar">
+	<classpathentry kind="lib" path="C:/Users/micha/OneDrive/Escritorio/Proyecto_Meteo_Cristian_Michael/Proy_Meteo/lib/Librerías JSON-20231115/jackson-core-2.9.9.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Propietario/Desktop/Trabajos (2º)/Acceso a Datos/Librerías JSON-20231031/jackson-core-2.9.9-javadoc.jar">
+	<classpathentry kind="lib" path="C:/Users/micha/OneDrive/Escritorio/Proyecto_Meteo_Cristian_Michael/Proy_Meteo/lib/Librerías JSON-20231115/jackson-core-2.9.9-javadoc.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Propietario/Desktop/Trabajos (2º)/Acceso a Datos/Librerías JSON-20231031/jackson-core-2.9.9-sources.jar">
+	<classpathentry kind="lib" path="C:/Users/micha/OneDrive/Escritorio/Proyecto_Meteo_Cristian_Michael/Proy_Meteo/lib/Librerías JSON-20231115/jackson-core-2.9.9-sources.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Propietario/Desktop/Trabajos (2º)/Acceso a Datos/Librerías JSON-20231031/jackson-databind-2.9.9.jar">
+	<classpathentry kind="lib" path="C:/Users/micha/OneDrive/Escritorio/Proyecto_Meteo_Cristian_Michael/Proy_Meteo/lib/Librerías JSON-20231115/jackson-databind-2.9.9.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Propietario/Desktop/Trabajos (2º)/Acceso a Datos/Librerías JSON-20231031/jackson-databind-2.9.9-javadoc.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Propietario/Desktop/Trabajos (2º)/Acceso a Datos/Librerías JSON-20231031/jackson-databind-2.9.9-sources.jar">
+	<classpathentry kind="lib" path="C:/Users/micha/OneDrive/Escritorio/Proyecto_Meteo_Cristian_Michael/Proy_Meteo/lib/Librerías JSON-20231115/jackson-databind-2.9.9-javadoc.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
