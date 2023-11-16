@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -18,9 +20,16 @@ import java.awt.Color;
 public class vista extends JFrame {
 
 	public JPanel contentPane,panel_Buscador,panel_Mapa;
+
 	public JLabel labelNombreProvincia,labelIconoTiempo,labelTemperatura,labelTMax,labelTMin,labelImagenEspana;
 	public JComboBox boxCA,boxProvincia,boxDia;
+
+
 	public JButton boton;
+
+
+	public ArrayList<String> CA = new ArrayList();
+//github.com/maikel50/Eje_METEO.git
 	/**
 	 * Launch the application.
 	 */
@@ -65,11 +74,13 @@ public class vista extends JFrame {
 		boxCA.setBounds(48, 252, 197, 21);
 		panel_Buscador.add(boxCA);
 		
+		
+		
 		 boxProvincia = new JComboBox();
 		boxProvincia.setBounds(48, 283, 197, 21);
 		panel_Buscador.add(boxProvincia);
 		
-		 boton = new JButton("New button");
+		 boton = new JButton("BUSCAR");
 		boton.setBounds(102, 314, 85, 21);
 		panel_Buscador.add(boton);
 		
@@ -112,6 +123,10 @@ public class vista extends JFrame {
 		labelImagenEspana.setIcon(new ImageIcon("C:\\Users\\Propietario\\Desktop\\Eclipse2\\METEO\\Eje_METEO\\src\\img\\mapaEspana-0000.jpg"));
 		labelImagenEspana.setBounds(0, 0, 569, 386);
 		panel_Mapa.add(labelImagenEspana);
+		
+		JLabel lblIconoCastillaLaMancha = new JLabel("");
+		lblIconoCastillaLaMancha.setBounds(273, 209, 25, 25);
+		panel_Mapa.add(lblIconoCastillaLaMancha);
 		
 		
 	}
