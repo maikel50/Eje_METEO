@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.swing.JTextField;
 import java.awt.Font;
@@ -17,16 +19,21 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.Label;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
 public class vista extends JFrame {
 
 	public JPanel contentPane,panel_Buscador,panel_Mapa;
 
 	public JLabel labelNombreProvincia,labelIconoTiempo,labelTemperatura,labelTMax,labelTMin,labelImagenEspana;
-	public JComboBox boxCA,boxProvincia,boxDia;
-
-
+	public JComboBox <String>boxCA;
+	public JComboBox <String>boxProvincia;
+	public JComboBox <String>boxDia;
 	public JButton boton;
+	public String [] comunidadesAutonomas = new String [17] ;
+	
+
 
 
 	public ArrayList<String> CA = new ArrayList();
@@ -121,10 +128,9 @@ public class vista extends JFrame {
 		panel_Buscador.setLayout(null);
 		
 		 boxCA = new JComboBox();
+			
 		boxCA.setBounds(48, 252, 197, 21);
 		panel_Buscador.add(boxCA);
-		
-		
 		
 		 boxProvincia = new JComboBox();
 		boxProvincia.setBounds(48, 283, 197, 21);
@@ -427,7 +433,109 @@ public class vista extends JFrame {
 		labelImagenEspana.setIcon(new ImageIcon(vista.class.getResource("/img/mapaEspana-0000.jpg")));
 		labelImagenEspana.setBounds(0, 0, 569, 386);
 		panel_Mapa.add(labelImagenEspana);
+	
+		//Comunidades Autonomas
 		
+		String [] comunidadesAutonomas = {
+	            "Andalucía", "Aragón", "Asturias", "Canarias", "Cantabria", "Castilla y León",
+	            "Castilla-La Mancha", "Cataluña", "Extremadura", "Galicia", "Islas Baleares",
+	            "La Rioja", "Madrid", "Murcia", "Navarra", "País Vasco", "Valencia"
+	    };
+		for (String comunidad : comunidadesAutonomas) {
+	        boxCA.addItem(comunidad);
+	    }
 		
+		boxCA.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent e) {
+                if (e.getStateChange() == ItemEvent.SELECTED) {
+                    String comunidadSeleccionada = (String) boxCA.getSelectedItem();
+                    llenarProvincias(comunidadSeleccionada);
+                }
+            }
+        });
+
 	}
+	 private void llenarProvincias(String comunidadAutonoma) {
+	        ArrayList<String> provincias = sacarProvincias(comunidadAutonoma);
+	        
+	        boxProvincia.removeAllItems();
+	        for (String provincia : provincias) {
+	            boxProvincia.addItem(provincia);
+	        }
+	    }
+	 public ArrayList<String> sacarProvincias(String comunidadAutonoma) {
+		    ArrayList<String> provincias = new ArrayList<>();
+
+		    if ("Andalucía".equals(comunidadAutonoma)) {
+		        provincias.add("Almería");
+		        provincias.add("Cádiz");
+		        provincias.add("Córdoba");
+		        provincias.add("Granada");
+		        provincias.add("Huelva");
+		        provincias.add("Jaén");
+		        provincias.add("Málaga");
+		        provincias.add("Sevilla");
+		    } else if ("Aragón".equals(comunidadAutonoma)) {
+		        provincias.add("Huesca");
+		        provincias.add("Teruel");
+		        provincias.add("Zaragoza");
+		    } else if ("Asturias".equals(comunidadAutonoma)) {
+		        provincias.add("Asturias");
+		    } else if ("Canarias".equals(comunidadAutonoma)) {
+		        provincias.add("Las Palmas");
+		        provincias.add("Santa Cruz de Tenerife");
+		    } else if ("Cantabria".equals(comunidadAutonoma)) {
+		        provincias.add("Cantabria");
+		    } else if ("Castilla y León".equals(comunidadAutonoma)) {
+		        provincias.add("Ávila");
+		        provincias.add("Burgos");
+		        provincias.add("León");
+		        provincias.add("Palencia");
+		        provincias.add("Salamanca");
+		        provincias.add("Segovia");
+		        provincias.add("Soria");
+		        provincias.add("Valladolid");
+		        provincias.add("Zamora");
+		    } else if ("Castilla-La Mancha".equals(comunidadAutonoma)) {
+		        provincias.add("Albacete");
+		        provincias.add("Ciudad Real");
+		        provincias.add("Cuenca");
+		        provincias.add("Guadalajara");
+		        provincias.add("Toledo");
+		    } else if ("Cataluña".equals(comunidadAutonoma)) {
+		        provincias.add("Barcelona");
+		        provincias.add("Girona");
+		        provincias.add("Lleida");
+		        provincias.add("Tarragona");
+		    } else if ("Extremadura".equals(comunidadAutonoma)) {
+		        provincias.add("Badajoz");
+		        provincias.add("Cáceres");
+		    } else if ("Galicia".equals(comunidadAutonoma)) {
+		        provincias.add("A Coruña");
+		        provincias.add("Lugo");
+		        provincias.add("Ourense");
+		        provincias.add("Pontevedra");
+		    } else if ("Islas Baleares".equals(comunidadAutonoma)) {
+		        provincias.add("Islas Baleares");
+		    } else if ("La Rioja".equals(comunidadAutonoma)) {
+		        provincias.add("La Rioja");
+		    } else if ("Madrid".equals(comunidadAutonoma)) {
+		        provincias.add("Madrid");
+		    } else if ("Murcia".equals(comunidadAutonoma)) {
+		        provincias.add("Murcia");
+		    } else if ("Navarra".equals(comunidadAutonoma)) {
+		        provincias.add("Navarra");
+		    } else if ("País Vasco".equals(comunidadAutonoma)) {
+		        provincias.add("Álava");
+		        provincias.add("Gipuzkoa");
+		        provincias.add("Bizkaia");
+		    } else if ("Valencia".equals(comunidadAutonoma)) {
+		        provincias.add("Alicante");
+		        provincias.add("Castellón");
+		        provincias.add("Valencia");
+		    }
+
+		    return provincias;
+		}
+
 }
