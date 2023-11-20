@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Controlador.controlador;
 import resource.configuracion;
 
 import java.awt.Toolkit;
@@ -99,6 +100,8 @@ public class vista extends JFrame {
 				try {
 					vista frame = new vista();
 					frame.setVisible(true);
+					configuracion config = new configuracion();
+					controlador control = new controlador(frame,config);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
