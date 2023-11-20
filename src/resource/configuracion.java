@@ -66,6 +66,7 @@ public class configuracion {
         return "Información no encontrada para la ciudad " + ciudad + " en la fecha " + fecha;
     }
 
+
 	
 
 	private static String obtenerInformacionClimatologica(String direccionWeb) {
