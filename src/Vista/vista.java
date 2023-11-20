@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import resource.configuracion;
+
 import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,19 +26,19 @@ import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 
 public class vista extends JFrame {
-
+	configuracion Configuracion = new configuracion();
 	public JPanel contentPane,panel_Buscador,panel_Mapa;
 
 	public JLabel labelNombreProvincia,labelIconoTiempo,labelTemperatura,labelTMax,labelTMin,labelImagenEspana;
 	public JComboBox <String>boxCA;
 	public JComboBox <String>boxProvincia;
-	public JComboBox <String>boxDia;
+	public    JComboBox <String>boxDia;
 	public JButton boton;
 	public String [] comunidadesAutonomas = new String [17] ;
 	
 
 
-
+	public List<String> fechas = configuracion.devolverFechas();
 	public ArrayList<String> CA = new ArrayList();
 	private JLabel lblIconoAvila;
 	private JLabel lblIconoCáceres;
@@ -127,8 +130,7 @@ public class vista extends JFrame {
 		contentPane.add(panel_Buscador);
 		panel_Buscador.setLayout(null);
 		
-		 boxCA = new JComboBox();
-			
+		boxCA = new JComboBox();	
 		boxCA.setBounds(48, 252, 197, 21);
 		panel_Buscador.add(boxCA);
 		
@@ -453,7 +455,8 @@ public class vista extends JFrame {
                 }
             }
         });
-
+		
+		fechasComboBOXDIA(fechas);
 	}
 	 private void llenarProvincias(String comunidadAutonoma) {
 	        ArrayList<String> provincias = sacarProvincias(comunidadAutonoma);
@@ -536,6 +539,14 @@ public class vista extends JFrame {
 		    }
 
 		    return provincias;
+		}
+
+	 public  void fechasComboBOXDIA(List<String> fechas) {
+		    
+		    for (String fecha : fechas) {
+					boxDia.addItem(fecha);
+					
+		    }
 		}
 
 }
