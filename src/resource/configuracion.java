@@ -85,7 +85,9 @@ public class configuracion {
     }
 
     private static void procesarInformacionClimatologica(String informacionClimatologica) {
-        try {
+       String fecha, estadoTiempo;
+       double tempMin,tempMax;
+    	try {
            
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode rootNode = objectMapper.readTree(informacionClimatologica);
@@ -95,10 +97,10 @@ public class configuracion {
             if (forecastNode.isArray()) {
                 
                 for (JsonNode dayNode : forecastNode) {
-                    String fecha = dayNode.path("forecastDate").asText();
-                    String estadoTiempo = dayNode.path("weather").asText();
-                    double tempMin = dayNode.path("minTemp").asDouble();
-                    double tempMax = dayNode.path("maxTemp").asDouble();
+                     fecha = dayNode.path("forecastDate").asText();
+                     estadoTiempo = dayNode.path("weather").asText();
+                     tempMin = dayNode.path("minTemp").asDouble();
+                     tempMax = dayNode.path("maxTemp").asDouble();
 
                     System.out.println(obtenerFecha(fecha));
                     System.out.println(obtenerEstadoDelTiempo(estadoTiempo));
@@ -124,15 +126,15 @@ public class configuracion {
         return  ciudad;
     }
 
-    private static Double obtenerTemperaturaMinima(double tempMin) {
+    public static Double obtenerTemperaturaMinima(double tempMin) {
         return tempMin;
     }
 
-    private static Double obtenerTemperaturaMaxima(double tempMax) {
+    public static Double obtenerTemperaturaMaxima(double tempMax) {
         return tempMax;
     }
 
-    private static String obtenerEstadoDelTiempo(String estadoTiempo) {
+    public static String obtenerEstadoDelTiempo(String estadoTiempo) {
         return estadoTiempo;
     }
 }
