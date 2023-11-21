@@ -1,80 +1,125 @@
 package Controlador;
 
-import java.awt.event.ActionEvent;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.awt.event.ActionListener;
-import java.util.Date;
-import java.util.List;
-import java.util.Set;
-
-import resource.configuracion;
 import Vista.vista;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Properties;
+import java.util.Set;
 
 public class controlador implements ActionListener {
 
-    vista frame;
-    configuracion configuracion; // Asegúrate de tener una instancia de configuracion
-    public String provincia;
-    public List<String> ciudadesConfig;
-    String fechaSeleccionada;
-    public controlador(vista frame, configuracion configuracion) {
+    private vista frame;
+    String provinciaSeleccionada;
+    Properties config = new Properties();
+    public controlador(vista frame) {
         this.frame = frame;
-        this.configuracion = configuracion;
         this.frame.boton.addActionListener(this);
         this.frame.boxCA.addActionListener(this);
         this.frame.boxProvincia.addActionListener(this);
         this.frame.boxDia.addActionListener(this);
-   
+    }
+    private void cargarConfiguracion() {
+        try (InputStream input = getClass().getClassLoader().getResourceAsStream("src/Controlador/config.properties")) {
+            if (input == null) {
+                System.out.println("Lo siento, no se puede encontrar el archivo config.properties");
+                return;
+            }
+
+           
+            config.load(input);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == frame.boxProvincia) {
-            provincia = (String) frame.boxProvincia.getSelectedItem();
+        	 provinciaSeleccionada = (String) frame.boxProvincia.getSelectedItem();
+        	 System.out.println(provinciaSeleccionada);
         }
-       
-       if (e.getSource() == frame.boton) {
+        if(e.getSource() == frame.boxDia) {
         	
-            Object objetoCiudad = frame.boxProvincia.getSelectedItem();
-            ciudadesConfig = configuracion.devolverCiudades();
+        }
+        if (e.getSource() == frame.boton) {
+        	try {
+        		
+        	config.load(new InputStreamReader(new FileInputStream("src/resource/config.properties"), "UTF-8"));
+            String url = config.getProperty(provinciaSeleccionada);
 
-            if (objetoCiudad != null) {
-                String ciudad = objetoCiudad.toString();
-                System.out.println("Texto seleccionado: " + ciudad);
+            // Realizar la solicitud HTTP y procesar la respuesta JSON
+            if (url != null) {
+            	 System.out.println("presionado");
+                String respuesta = realizarSolicitudHTTP(url);
 
-               
-                if (ciudadesConfig.contains(ciudad)) {
-                	
-                    mostrarInformacion(ciudad);
-                    
-                } else {
-                    System.out.println("La ciudad no está en la lista.");
+                // Procesar la respuesta JSON
+                if (respuesta != null && !respuesta.isEmpty()) {
+                    try {
+                        ObjectMapper objectMapper = new ObjectMapper();
+                        JsonNode jsonNode = objectMapper.readTree(respuesta);
+
+                        // Obtener información del pronóstico
+                        
+                        JsonNode forecastNode = jsonNode.path("city").path("forecast").path("forecastDay").get(0);
+                        String fecha = forecastNode.path("forecastDate").asText();
+                        String minTemp = forecastNode.path("minTemp").asText();
+                        String maxTemp = forecastNode.path("maxTemp").asText();
+                        String estadoTiempo = forecastNode.path("weather").asText();
+
+                        // Imprimir la información
+                        System.out.println("Temperatura Mínima: " + minTemp);
+                        System.out.println("Temperatura Máxima: " + maxTemp);
+                        System.out.println("Estado del Tiempo: " + estadoTiempo);
+                    } catch (Exception ex) {
+                        ex.printStackTrace();  // Manejar errores de procesamiento JSON
+                    }
                 }
-            } else {
-                System.out.println("Error: No se seleccionó ninguna ciudad.");
             }
-        }  
-     
-    }
-
-    public void mostrarInformacion(String ciudad) {
-        String informacion = configuracion.obtenerInformacionCiudad(ciudad);
-        Double tMin = configuracion.devolverTMin();
-        String tempMin = String.valueOf(tMin);
-        
-        Double tMax = configuracion.devolverTMax();
-        String tempMax = String.valueOf(tMax);
-        if (informacion != null) {
-           frame.labelNombreProvincia.setText(ciudad);
-           frame.labelTMin.setText(tempMin);
-           frame.labelTMax.setText(tempMax);
-        } else {
-            System.out.println("Información no encontrada para la ciudad " + ciudad + " en la fecha " + fechaSeleccionada);
+            } catch(Exception ex) {
+            	ex.printStackTrace();
+            }
+            
         }
     }
 
+	private String realizarSolicitudHTTP(String url) {
+		try {
+            URL apiUrl = new URL(url);
+            HttpURLConnection connection = (HttpURLConnection) apiUrl.openConnection();
+            connection.setRequestMethod("GET");
 
-public String getProvincia() {
-    return provincia;
-}
-}
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            StringBuilder response = new StringBuilder();
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                response.append(line);
+            }
+
+            reader.close();
+            connection.disconnect();
+
+            return response.toString();
+        } catch (IOException e) {
+            e.printStackTrace();  // Manejar errores de conexión
+        }
+
+        return null;
+    }
+	
+    }
+
+    

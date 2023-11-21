@@ -1,8 +1,10 @@
 package resource;
 
 import com.fasterxml.jackson.databind.JsonNode;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import Controlador.controlador;
 import Modelo.datos;
 import Vista.vista;
 
@@ -12,31 +14,45 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
+import java.util.*;
+import java.io.*;
+import java.net.*;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class configuracion {
+    private static Map<String, List<Double>> temperaturasPorCiudad = new LinkedHashMap<>();
+    private static List<String> ciudades;
     private static List<String> fechasProcesadas = new ArrayList<>();
-    private static Set<String> ciudades ;
-    private static List<String> informacionCiudad = new ArrayList<>();
-    private static double tMin,tMax;
+
     public static void main(String[] args) {
-        Properties configuracion = new Properties();
-        
+        Properties config = new Properties();
         try {
+            config.load(new InputStreamReader(new FileInputStream("src/resource/config.properties"), "UTF-8"));
+            
+            ciudades = new ArrayList<>(config.stringPropertyNames());
+            LinkedHashMap<String, String> ciudadesMap = new LinkedHashMap<>();
 
-            configuracion.load(new InputStreamReader(new FileInputStream("src/resource/config.properties"), "UTF-8"));
+            for (Map.Entry<Object, Object> entry : config.entrySet()) {
+                ciudadesMap.put((String) entry.getKey(), (String) entry.getValue());
+            }
 
-             ciudades = configuracion.stringPropertyNames();
+            // Recorrer las ciudades en el orden correcto
+            for (Map.Entry<String, String> entry : ciudadesMap.entrySet()) {
+                String ciudad = entry.getKey();
+                String direccionWeb = entry.getValue();
 
-            System.out.println(ciudades);
-            for (String ciudad : ciudades) {
-                String direccionWeb = configuracion.getProperty(ciudad);
                 if (direccionWeb != null) {
+                    direccionWeb = direccionWeb.trim();
                     String informacionClimatologica = obtenerInformacionClimatologica(direccionWeb);
-                    procesarInformacionClimatologica(informacionClimatologica);
+                    procesarInformacionClimatologica(ciudad, informacionClimatologica);
+
                     System.out.println("---------------------");
                     String informacionCiudad = obtenerInformacionCiudad(ciudad);
                     System.out.println("Información de la ciudad: " + informacionCiudad);
@@ -45,25 +61,23 @@ public class configuracion {
                 }
             }
 
-            
-             devolverFechas();
-          
+            devolverFechas();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static String obtenerInformacionCiudad(String ciudad) {
-    	for (String info : informacionCiudad) {
+    private static String obtenerInformacionCiudad(String ciudad) {
+        for (String info : ciudades) {
             if (info.contains(ciudad)) {
                 return info;
             }
         }
         return "Información no encontrada para la ciudad: " + ciudad;
-	}
+    }
 
-	private static String obtenerInformacionClimatologica(String direccionWeb) {
+    private static String obtenerInformacionClimatologica(String direccionWeb) {
         StringBuilder respuesta = new StringBuilder();
 
         try {
@@ -85,6 +99,10 @@ public class configuracion {
                     while ((linea = leer.readLine()) != null) {
                         respuesta.append(linea);
                     }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    conexion.disconnect(); // Cerrar la conexión HTTP
                 }
             } else {
                 System.out.println("Error en la solicitud HTTP. Código de respuesta: " + codigoRespuesta);
@@ -102,41 +120,34 @@ public class configuracion {
         return respuesta.toString();
     }
 
-
-    private static void procesarInformacionClimatologica(String informacionClimatologica) {
-        String fecha, estadoTiempo,ciudad;
+    private static void procesarInformacionClimatologica(String ciudad, String informacionClimatologica) {
+        String fecha;
         double tempMin, tempMax;
-       
-      
+        ArrayList temperaturasMinimas = new ArrayList<>();
+        ArrayList temperaturasMaximas = new ArrayList<>();
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode rootNode = objectMapper.readTree(informacionClimatologica);
-            
-            JsonNode cityNode = rootNode.path("city");
-            ciudad = cityNode.path("cityName").asText();
-            
-            // Mostrar información de la ciudad
-            System.out.println("Ciudad: " + ciudad);
+
             JsonNode forecastNode = rootNode.path("city").path("forecast").path("forecastDay");
-            informacionCiudad.add(ciudad);
             if (forecastNode.isArray()) {
                 for (JsonNode dayNode : forecastNode) {
-                	
                     fecha = dayNode.path("forecastDate").asText();
-                    estadoTiempo = dayNode.path("weather").asText();
-                    tMin = dayNode.path("minTemp").asDouble();
-                    tMax = dayNode.path("maxTemp").asDouble();
-                    
-                    
+                    tempMin = dayNode.path("minTemp").asDouble();
+                    tempMax = dayNode.path("maxTemp").asDouble();
+
                     // Agregar la fecha a la lista
                     fechasProcesadas.add(fecha);
+
+                    // Almacenar temperaturas por ciudad
+                    temperaturasPorCiudad.computeIfAbsent(ciudad, k -> new ArrayList<>()).add(tempMin);
+                    temperaturasPorCiudad.computeIfAbsent(ciudad, k -> new ArrayList<>()).add(tempMax);
                     
-                    
-                   
+                    temperaturasMinimas.add(tempMin);
+                    temperaturasMaximas.add(tempMax);
                     System.out.println(obtenerFecha(fecha));
-                    System.out.println(obtenerEstadoDelTiempo(estadoTiempo));
-                    System.out.println(devolverTMin());
-                    System.out.println(devolverTMax());
+                    System.out.println(devolverTMin(ciudad, fecha));
+                    System.out.println(devolverTMax(ciudad, fecha));
                 }
             } else {
                 System.out.println("Estructura JSON incorrecta. No se encontró el nodo del pronóstico.");
@@ -146,41 +157,41 @@ public class configuracion {
         }
     }
 
-    
-   
-    public static List<String> devolverCiudades(){
-		return informacionCiudad;
-    	
+    public static Double devolverTMin(String ciudad, String fecha) {
+        int indexCiudad = ciudades.indexOf(ciudad);
+        int indexFecha = fechasProcesadas.indexOf(fecha);
+
+        if (indexCiudad != -1 && indexFecha != -1) {
+            int indexTemperatura = indexFecha + indexCiudad * fechasProcesadas.size();
+            return temperaturasPorCiudad.get(ciudad).get(indexTemperatura);
+        } else {
+            System.out.println("Información no encontrada para la ciudad: " + ciudad + " y fecha: " + fecha);
+            return null;
+        }
     }
-    
+
+    public static Double devolverTMax(String ciudad, String fecha) {
+        int indexCiudad = ciudades.indexOf(ciudad);
+        int indexFecha = fechasProcesadas.indexOf(fecha);
+
+        if (indexCiudad != -1 && indexFecha != -1) {
+            int indexTemperatura = indexFecha + indexCiudad * fechasProcesadas.size() + fechasProcesadas.size();
+            return temperaturasPorCiudad.get(ciudad).get(indexTemperatura);
+        } else {
+            System.out.println("Información no encontrada para la ciudad: " + ciudad + " y fecha: " + fecha);
+            return null;
+        }
+    }
+
+    public static List<String> devolverCiudades() {
+        return ciudades;
+    }
+
     public static List<String> devolverFechas() {
         return fechasProcesadas;
     }
 
-    public static Double devolverTMin() {
-    	return tMin;
-    }
-    public static Double devolverTMax() {
-    	return tMax;
-    }
     public static String obtenerFecha(String fecha) {
         return fecha;
     }
-    
-    public static String obtenerNombreCiudad(String ciudad) {
-        return ciudad;
-    }
-    
-    public static Double obtenerTemperaturaMinima(double tempMin) {
-        return tempMin;
-    }
-
-    public static Double obtenerTemperaturaMaxima(double tempMax) {
-        return tempMax;
-    }
-
-    public static String obtenerEstadoDelTiempo(String estadoTiempo) {
-        return estadoTiempo;
-    }
-    
 }

@@ -31,7 +31,7 @@ import java.awt.event.ItemEvent;
 
 
 public class vista extends JFrame {
-	configuracion Configuracion = new configuracion();
+	
 	public JPanel contentPane,panel_Buscador,panel_Mapa;
 
 	public JLabel labelNombreProvincia,labelIconoTiempo,labelTMax,labelTMin,labelImagenEspana, labelBuscador;
@@ -43,7 +43,7 @@ public class vista extends JFrame {
 	
 
 
-	public List<String> fechas = configuracion.devolverFechas();
+	
 	public ArrayList<String> CA = new ArrayList();
 	public JLabel lblIconoAvila;
 	public JLabel lblIconoCáceres;
@@ -95,7 +95,7 @@ public class vista extends JFrame {
 	public JLabel lblIconoCadiz;
 	public JLabel lblIconoHuesca;
 	private JComboBox<String> comboBoxFechas;
-    private ArrayList<Date> fecha = new ArrayList();
+    
 	
 //github.com/maikel50/Eje_METEO.git
 	/**
@@ -107,9 +107,9 @@ public class vista extends JFrame {
 				try {
 					vista frame = new vista();
 					frame.setVisible(true);
-					configuracion config = new configuracion();
 					
-					controlador control = new controlador(frame, config);
+					
+					controlador control = new controlador(frame);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -467,7 +467,7 @@ public class vista extends JFrame {
             }
         });
 		
-		fechasComboBOXDIA(fechas);
+		
 		
        
         
@@ -486,7 +486,7 @@ public class vista extends JFrame {
 		    ArrayList<String> provincias = new ArrayList<>();
 
 		    if ("Andalucía".equals(comunidadAutonoma)) {
-		        provincias.add("Almería");
+		        provincias.add("Almeria");
 		        provincias.add("Cádiz");
 		        provincias.add("Córdoba");
 		        provincias.add("Granada");
@@ -556,17 +556,5 @@ public class vista extends JFrame {
 
 		    return provincias;
 		}
-
-	 public  void fechasComboBOXDIA(List<String> fechas) {
-		 int contadorFechas=0;
-		    	for (String fecha : fechas ) {
-						boxDia.addItem(fecha);
-						contadorFechas++;
-						
-						if(contadorFechas >= 5) {
-							break;
-						}
-		    	}
-		 }
 
 }
