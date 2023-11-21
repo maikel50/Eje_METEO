@@ -165,7 +165,7 @@ public class vista extends JFrame {
 		labelNombreProvincia.setBounds(48, 59, 197, 21);
 		panel_Buscador.add(labelNombreProvincia);
 		
-		 labelIconoTiempo = new JLabel("");
+		labelIconoTiempo = new JLabel(" ");
 		labelIconoTiempo.setHorizontalAlignment(SwingConstants.CENTER);
 		labelIconoTiempo.setBounds(115, 101, 66, 53);
 		panel_Buscador.add(labelIconoTiempo);
