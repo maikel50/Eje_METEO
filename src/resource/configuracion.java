@@ -21,6 +21,7 @@ public class configuracion {
     private static List<String> fechasProcesadas = new ArrayList<>();
     private static Set<String> ciudades ;
     private static List<String> informacionCiudad = new ArrayList<>();
+    private static double tMin,tMax;
     public static void main(String[] args) {
         Properties configuracion = new Properties();
         
@@ -37,13 +38,9 @@ public class configuracion {
                     String informacionClimatologica = obtenerInformacionClimatologica(direccionWeb);
                     procesarInformacionClimatologica(informacionClimatologica);
                     System.out.println("---------------------");
-                    
-                    for (String fecha : fechasProcesadas) {
-                        String informacionCiudadFecha = obtenerInformacionCiudad(ciudad, fecha);
-                        System.out.println(informacionCiudadFecha);
-                    }
-                } 
-                 else {
+                    String informacionCiudad = obtenerInformacionCiudad(ciudad);
+                    System.out.println("Información de la ciudad: " + informacionCiudad);
+                } else {
                     System.out.println("ERROR");
                 }
             }
@@ -57,17 +54,14 @@ public class configuracion {
         }
     }
 
-    public static String obtenerInformacionCiudad(String ciudad, String fecha) {
-        for (String info : informacionCiudad) {
-            if (info != null && info.contains(ciudad) && info.contains(fecha)) {
+    public static String obtenerInformacionCiudad(String ciudad) {
+    	for (String info : informacionCiudad) {
+            if (info.contains(ciudad)) {
                 return info;
             }
         }
-        return "Información no encontrada para la ciudad " + ciudad + " en la fecha " + fecha;
-    }
-
-
-	
+        return "Información no encontrada para la ciudad: " + ciudad;
+	}
 
 	private static String obtenerInformacionClimatologica(String direccionWeb) {
         StringBuilder respuesta = new StringBuilder();
@@ -130,19 +124,19 @@ public class configuracion {
                 	
                     fecha = dayNode.path("forecastDate").asText();
                     estadoTiempo = dayNode.path("weather").asText();
-                    tempMin = dayNode.path("minTemp").asDouble();
-                    tempMax = dayNode.path("maxTemp").asDouble();
+                    tMin = dayNode.path("minTemp").asDouble();
+                    tMax = dayNode.path("maxTemp").asDouble();
                     
                     
                     // Agregar la fecha a la lista
                     fechasProcesadas.add(fecha);
-                    Map<String, datos> mapa = new HashMap<>();
+                    
                     
                    
                     System.out.println(obtenerFecha(fecha));
                     System.out.println(obtenerEstadoDelTiempo(estadoTiempo));
-                    System.out.println(obtenerTemperaturaMinima(tempMin));
-                    System.out.println(obtenerTemperaturaMaxima(tempMax));
+                    System.out.println(devolverTMin());
+                    System.out.println(devolverTMax());
                 }
             } else {
                 System.out.println("Estructura JSON incorrecta. No se encontró el nodo del pronóstico.");
@@ -163,7 +157,12 @@ public class configuracion {
         return fechasProcesadas;
     }
 
-    
+    public static Double devolverTMin() {
+    	return tMin;
+    }
+    public static Double devolverTMax() {
+    	return tMax;
+    }
     public static String obtenerFecha(String fecha) {
         return fecha;
     }
@@ -185,4 +184,3 @@ public class configuracion {
     }
     
 }
-

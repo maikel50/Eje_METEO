@@ -12,7 +12,9 @@ import resource.configuracion;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.Timer;
 
 import javax.swing.JTextField;
 import java.awt.Font;
@@ -24,13 +26,15 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.awt.Label;
 import java.awt.event.ItemListener;
+import java.text.SimpleDateFormat;
 import java.awt.event.ItemEvent;
+
 
 public class vista extends JFrame {
 	configuracion Configuracion = new configuracion();
 	public JPanel contentPane,panel_Buscador,panel_Mapa;
 
-	public JLabel labelNombreProvincia,labelIconoTiempo,labelTemperatura,labelTMax,labelTMin,labelImagenEspana, labelBuscador;
+	public JLabel labelNombreProvincia,labelIconoTiempo,labelTMax,labelTMin,labelImagenEspana, labelBuscador;
 	public JComboBox <String>boxCA;
 	public JComboBox <String>boxProvincia;
 	public    JComboBox <String>boxDia;
@@ -90,6 +94,9 @@ public class vista extends JFrame {
 	public JLabel lblIconoCiudadReal;
 	public JLabel lblIconoCadiz;
 	public JLabel lblIconoHuesca;
+	private JComboBox<String> comboBoxFechas;
+    private ArrayList<Date> fecha = new ArrayList();
+	
 //github.com/maikel50/Eje_METEO.git
 	/**
 	 * Launch the application.
@@ -101,7 +108,8 @@ public class vista extends JFrame {
 					vista frame = new vista();
 					frame.setVisible(true);
 					configuracion config = new configuracion();
-					controlador control = new controlador(frame,config);
+					
+					controlador control = new controlador(frame, config);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -162,18 +170,12 @@ public class vista extends JFrame {
 		labelIconoTiempo.setBounds(115, 101, 66, 53);
 		panel_Buscador.add(labelIconoTiempo);
 		
-		 labelTemperatura = new JLabel("0 ºC");
-		 labelTemperatura.setFont(new Font("Tahoma", Font.BOLD, 15));
-		labelTemperatura.setHorizontalAlignment(SwingConstants.CENTER);
-		labelTemperatura.setBounds(48, 164, 197, 29);
-		panel_Buscador.add(labelTemperatura);
-		
-		 labelTMax = new JLabel("Mín: 0 ºC");
+		 labelTMax = new JLabel("Max: 0 ºC");
 		labelTMax.setHorizontalAlignment(SwingConstants.CENTER);
 		labelTMax.setBounds(48, 193, 197, 29);
 		panel_Buscador.add(labelTMax);
 		
-		 labelTMin = new JLabel("Máx: 0 ºC");
+		 labelTMin = new JLabel("Min: 0 ºC");
 		labelTMin.setHorizontalAlignment(SwingConstants.CENTER);
 		labelTMin.setBounds(48, 213, 197, 29);
 		panel_Buscador.add(labelTMin);
@@ -466,7 +468,12 @@ public class vista extends JFrame {
         });
 		
 		fechasComboBOXDIA(fechas);
+		
+       
+        
+
 	}
+	 
 	 private void llenarProvincias(String comunidadAutonoma) {
 	        ArrayList<String> provincias = sacarProvincias(comunidadAutonoma);
 	        
@@ -561,7 +568,5 @@ public class vista extends JFrame {
 						}
 		    	}
 		 }
-		 
-		
-	 
+
 }

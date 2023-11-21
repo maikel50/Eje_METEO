@@ -3,6 +3,7 @@ package Controlador;
 import java.awt.event.ActionEvent;
 
 import java.awt.event.ActionListener;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -22,6 +23,7 @@ public class controlador implements ActionListener {
         this.frame.boton.addActionListener(this);
         this.frame.boxCA.addActionListener(this);
         this.frame.boxProvincia.addActionListener(this);
+        this.frame.boxDia.addActionListener(this);
    
     }
 
@@ -30,6 +32,7 @@ public class controlador implements ActionListener {
         if (e.getSource() == frame.boxProvincia) {
             provincia = (String) frame.boxProvincia.getSelectedItem();
         }
+       
        if (e.getSource() == frame.boton) {
         	
             Object objetoCiudad = frame.boxProvincia.getSelectedItem();
@@ -50,24 +53,26 @@ public class controlador implements ActionListener {
             } else {
                 System.out.println("Error: No se seleccionó ninguna ciudad.");
             }
-        } else if (e.getSource() == frame.boxDia) {
-            
-             fechaSeleccionada = (String) frame.boxDia.getSelectedItem();
-            System.out.println("Fecha seleccionada: " + fechaSeleccionada);
+        }  
+     
+    }
+
+    public void mostrarInformacion(String ciudad) {
+        String informacion = configuracion.obtenerInformacionCiudad(ciudad);
+        Double tMin = configuracion.devolverTMin();
+        String tempMin = String.valueOf(tMin);
+        
+        Double tMax = configuracion.devolverTMax();
+        String tempMax = String.valueOf(tMax);
+        if (informacion != null) {
+           frame.labelNombreProvincia.setText(ciudad);
+           frame.labelTMin.setText(tempMin);
+           frame.labelTMax.setText(tempMax);
+        } else {
+            System.out.println("Información no encontrada para la ciudad " + ciudad + " en la fecha " + fechaSeleccionada);
         }
     }
 
-
-
-
-public void mostrarInformacion(String ciudad) {
-		String informacion = configuracion.obtenerInformacionCiudad(ciudad,fechaSeleccionada);
-		if(informacion != null) {
-			frame.labelNombreProvincia.setText(ciudad);
-			frame.labelTMax.setText(informacion);
-		}
-		
-	}
 
 public String getProvincia() {
     return provincia;
