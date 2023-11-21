@@ -1,6 +1,7 @@
 package Modelo;
 import java.util.ArrayList;
 
+
 import java.util.List;
 
 import Controlador.controlador;
@@ -14,9 +15,6 @@ public class modelo {
         
         vista vista = new vista();
         controlador controlador = new controlador(vista);
-
-       
-       
     }
 }
 

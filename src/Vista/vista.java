@@ -37,7 +37,7 @@ public class vista extends JFrame {
 	public JLabel labelNombreProvincia,labelIconoTiempo,labelTMax,labelTMin,labelImagenEspana, labelBuscador;
 	public JComboBox <String>boxCA;
 	public JComboBox <String>boxProvincia;
-	public    JComboBox <String>boxDia;
+	public JComboBox <String>boxDia;
 	public JButton boton;
 	public String [] comunidadesAutonomas = new String [17] ;
 	
@@ -46,7 +46,7 @@ public class vista extends JFrame {
 	
 	public ArrayList<String> CA = new ArrayList();
 	public JLabel lblIconoAvila;
-	public JLabel lblIconoCáceres;
+	public JLabel lblIconoCaceres;
 	public JLabel lblIconoValencia;
 	public JLabel lblIconoMurcia;
 	public JLabel lblIconoMadrid;
@@ -197,247 +197,247 @@ public class vista extends JFrame {
 		contentPane.add(boxDia);
 		
 		lblIconoPalencia = new JLabel("");
-		lblIconoPalencia.setIcon(new ImageIcon(vista.class.getResource("/img/lluvia.png")));
+		lblIconoPalencia.setIcon(null);
 		lblIconoPalencia.setBounds(244, 44, 25, 25);
 		panel_Mapa.add(lblIconoPalencia);
 		
 		lblIconoLeon = new JLabel("");
-		lblIconoLeon.setIcon(new ImageIcon(vista.class.getResource("/img/nieve.png")));
+		lblIconoLeon.setIcon(null);
 		lblIconoLeon.setBounds(196, 45, 25, 25);
 		panel_Mapa.add(lblIconoLeon);
 		
 		lblIconoValladolid = new JLabel("");
-		lblIconoValladolid.setIcon(new ImageIcon(vista.class.getResource("/img/sol.png")));
+		lblIconoValladolid.setIcon(null);
 		lblIconoValladolid.setBounds(229, 91, 25, 25);
 		panel_Mapa.add(lblIconoValladolid);
 		
 		lblIconoZamora = new JLabel("");
-		lblIconoZamora.setIcon(new ImageIcon(vista.class.getResource("/img/sol.png")));
+		lblIconoZamora.setIcon(null);
 		lblIconoZamora.setBounds(194, 91, 25, 25);
 		panel_Mapa.add(lblIconoZamora);
 		
 		lblIconoBurgos = new JLabel("");
-		lblIconoBurgos.setIcon(new ImageIcon(vista.class.getResource("/img/lluvia.png")));
+		lblIconoBurgos.setIcon(null);
 		lblIconoBurgos.setBounds(271, 66, 25, 25);
 		panel_Mapa.add(lblIconoBurgos);
 		
 		lblIconoSegovia = new JLabel("");
-		lblIconoSegovia.setIcon(new ImageIcon(vista.class.getResource("/img/sol.png")));
+		lblIconoSegovia.setIcon(null);
 		lblIconoSegovia.setBounds(258, 115, 25, 25);
 		panel_Mapa.add(lblIconoSegovia);
 		
 		lblIconoSoria = new JLabel("");
-		lblIconoSoria.setIcon(new ImageIcon(vista.class.getResource("/img/lluvia.png")));
+		lblIconoSoria.setIcon(null);
 		lblIconoSoria.setBounds(318, 91, 25, 25);
 		panel_Mapa.add(lblIconoSoria);
 		
 		lblIconoLerida = new JLabel("");
-		lblIconoLerida.setIcon(new ImageIcon(vista.class.getResource("/img/sol.png")));
+		lblIconoLerida.setIcon(null);
 		lblIconoLerida.setBounds(439, 66, 25, 25);
 		panel_Mapa.add(lblIconoLerida);
 		
 		lblIconoTarragona = new JLabel("");
-		lblIconoTarragona.setIcon(new ImageIcon(vista.class.getResource("/img/sol.png")));
+		lblIconoTarragona.setIcon(null);
 		lblIconoTarragona.setBounds(426, 115, 25, 25);
 		panel_Mapa.add(lblIconoTarragona);
 		
 		lblIconoPontevedra = new JLabel("");
-		lblIconoPontevedra.setIcon(new ImageIcon(vista.class.getResource("/img/nieve.png")));
+		lblIconoPontevedra.setIcon(null);
 		lblIconoPontevedra.setBounds(110, 54, 25, 25);
 		panel_Mapa.add(lblIconoPontevedra);
 		
 		lblIconoLaCoruña = new JLabel("");
-		lblIconoLaCoruña.setIcon(new ImageIcon(vista.class.getResource("/img/nieve.png")));
+		lblIconoLaCoruña.setIcon(null);
 		lblIconoLaCoruña.setBounds(105, 21, 25, 25);
 		panel_Mapa.add(lblIconoLaCoruña);
 		
 		lblIconoOrense = new JLabel("");
-		lblIconoOrense.setIcon(new ImageIcon(vista.class.getResource("/img/nube.png")));
+		lblIconoOrense.setIcon(null);
 		lblIconoOrense.setBounds(140, 66, 25, 25);
 		panel_Mapa.add(lblIconoOrense);
 		
 		lblIconoLugo = new JLabel("");
-		lblIconoLugo.setIcon(new ImageIcon(vista.class.getResource("/img/lluvia.png")));
+		lblIconoLugo.setIcon(null);
 		lblIconoLugo.setBounds(140, 10, 25, 25);
 		panel_Mapa.add(lblIconoLugo);
 		
 		lblIconoAsturias = new JLabel("");
-		lblIconoAsturias.setIcon(new ImageIcon(vista.class.getResource("/img/sol.png")));
+		lblIconoAsturias.setIcon(null);
 		lblIconoAsturias.setBounds(186, 10, 25, 25);
 		panel_Mapa.add(lblIconoAsturias);
 		
 		lblIconoCantabria = new JLabel("");
-		lblIconoCantabria.setIcon(new ImageIcon(vista.class.getResource("/img/lluvia.png")));
+		lblIconoCantabria.setIcon(null);
 		lblIconoCantabria.setBounds(271, 10, 25, 25);
 		panel_Mapa.add(lblIconoCantabria);
 		
 		lblIconoHuesca = new JLabel("");
-		lblIconoHuesca.setIcon(new ImageIcon(vista.class.getResource("/img/lluvia.png")));
+		lblIconoHuesca.setIcon(null);
 		lblIconoHuesca.setBounds(385, 66, 25, 25);
 		panel_Mapa.add(lblIconoHuesca);
 		
 		lblIconoZaragoza = new JLabel("");
-		lblIconoZaragoza.setIcon(new ImageIcon(vista.class.getResource("/img/sol.png")));
+		lblIconoZaragoza.setIcon(null);
 		lblIconoZaragoza.setBounds(375, 104, 25, 25);
 		panel_Mapa.add(lblIconoZaragoza);
 		
 		lblIconoTeruel = new JLabel("");
-		lblIconoTeruel.setIcon(new ImageIcon(vista.class.getResource("/img/sol.png")));
+		lblIconoTeruel.setIcon(null);
 		lblIconoTeruel.setBounds(366, 141, 25, 25);
 		panel_Mapa.add(lblIconoTeruel);
 		
 		lblIconoAlava = new JLabel("");
-		lblIconoAlava.setIcon(new ImageIcon(vista.class.getResource("/img/sol.png")));
+		lblIconoAlava.setIcon(null);
 		lblIconoAlava.setBounds(299, 33, 25, 25);
 		panel_Mapa.add(lblIconoAlava);
 		
 		lblIconoVizcaya = new JLabel("");
-		lblIconoVizcaya.setIcon(new ImageIcon(vista.class.getResource("/img/nube.png")));
+		lblIconoVizcaya.setIcon(null);
 		lblIconoVizcaya.setBounds(318, 10, 25, 25);
 		panel_Mapa.add(lblIconoVizcaya);
 		
 		lblIconoNavarra = new JLabel("");
-		lblIconoNavarra.setIcon(new ImageIcon(vista.class.getResource("/img/lluvia.png")));
+		lblIconoNavarra.setIcon(null);
 		lblIconoNavarra.setBounds(339, 44, 25, 25);
 		panel_Mapa.add(lblIconoNavarra);
 		
 		lblIconoLaRioja = new JLabel("");
-		lblIconoLaRioja.setIcon(new ImageIcon(vista.class.getResource("/img/nube.png")));
+		lblIconoLaRioja.setIcon(null);
 		lblIconoLaRioja.setBounds(318, 66, 25, 25);
 		panel_Mapa.add(lblIconoLaRioja);
 		
 		lblIconoSalamanca = new JLabel("");
-		lblIconoSalamanca.setIcon(new ImageIcon(vista.class.getResource("/img/lluvia.png")));
+		lblIconoSalamanca.setIcon(null);
 		lblIconoSalamanca.setBounds(194, 127, 25, 25);
 		panel_Mapa.add(lblIconoSalamanca);
 		
 		lblIconoJaen = new JLabel("");
-		lblIconoJaen.setIcon(new ImageIcon(vista.class.getResource("/img/sol.png")));
+		lblIconoJaen.setIcon(null);
 		lblIconoJaen.setBounds(283, 252, 25, 25);
 		panel_Mapa.add(lblIconoJaen);
 		
 		lblIconoAlmeria = new JLabel("");
-		lblIconoAlmeria.setIcon(new ImageIcon(vista.class.getResource("/img/sol.png")));
+		lblIconoAlmeria.setIcon(null);
 		lblIconoAlmeria.setBounds(318, 281, 25, 25);
 		panel_Mapa.add(lblIconoAlmeria);
 		
 		lblIconoGranada = new JLabel("");
-		lblIconoGranada.setIcon(new ImageIcon(vista.class.getResource("/img/sol.png")));
+		lblIconoGranada.setIcon(null);
 		lblIconoGranada.setBounds(283, 281, 25, 25);
 		panel_Mapa.add(lblIconoGranada);
 		
 		lblIconoCordoba = new JLabel("");
-		lblIconoCordoba.setIcon(new ImageIcon(vista.class.getResource("/img/nube.png")));
+		lblIconoCordoba.setIcon(null);
 		lblIconoCordoba.setBounds(229, 252, 25, 25);
 		panel_Mapa.add(lblIconoCordoba);
 		
 		lblIconoMalaga = new JLabel("");
-		lblIconoMalaga.setIcon(new ImageIcon(vista.class.getResource("/img/lluvia.png")));
+		lblIconoMalaga.setIcon(null);
 		lblIconoMalaga.setBounds(244, 296, 25, 25);
 		panel_Mapa.add(lblIconoMalaga);
 		
 		lblIconoSevilla = new JLabel("");
-		lblIconoSevilla.setIcon(new ImageIcon(vista.class.getResource("/img/lluvia.png")));
+		lblIconoSevilla.setIcon(null);
 		lblIconoSevilla.setBounds(204, 281, 25, 25);
 		panel_Mapa.add(lblIconoSevilla);
 		
 		lblIconoHuelva = new JLabel("");
-		lblIconoHuelva.setIcon(new ImageIcon(vista.class.getResource("/img/nieve.png")));
+		lblIconoHuelva.setIcon(null);
 		lblIconoHuelva.setBounds(159, 265, 25, 25);
 		panel_Mapa.add(lblIconoHuelva);
 		
 		lblIconoLasPalmas = new JLabel("");
-		lblIconoLasPalmas.setIcon(new ImageIcon(vista.class.getResource("/img/nube.png")));
+		lblIconoLasPalmas.setIcon(null);
 		lblIconoLasPalmas.setBounds(110, 351, 25, 25);
 		panel_Mapa.add(lblIconoLasPalmas);
 		
 		lblIconoSantaCruzDeTenerife = new JLabel("");
-		lblIconoSantaCruzDeTenerife.setIcon(new ImageIcon(vista.class.getResource("/img/sol.png")));
+		lblIconoSantaCruzDeTenerife.setIcon(null);
 		lblIconoSantaCruzDeTenerife.setBounds(33, 340, 25, 25);
 		panel_Mapa.add(lblIconoSantaCruzDeTenerife);
 		
 		lblIconoIslasBaleares = new JLabel("");
-		lblIconoIslasBaleares.setIcon(new ImageIcon(vista.class.getResource("/img/lluvia.png")));
+		lblIconoIslasBaleares.setIcon(null);
 		lblIconoIslasBaleares.setBounds(503, 176, 25, 25);
 		panel_Mapa.add(lblIconoIslasBaleares);
 		
 		lblIconoCastellon = new JLabel("");
-		lblIconoCastellon.setIcon(new ImageIcon(vista.class.getResource("/img/nube.png")));
+		lblIconoCastellon.setIcon(null);
 		lblIconoCastellon.setBounds(401, 157, 25, 25);
 		panel_Mapa.add(lblIconoCastellon);
 		
 		lblIconoAlicante = new JLabel("");
-		lblIconoAlicante.setIcon(new ImageIcon(vista.class.getResource("/img/lluvia.png")));
+		lblIconoAlicante.setIcon(null);
 		lblIconoAlicante.setBounds(385, 226, 25, 25);
 		panel_Mapa.add(lblIconoAlicante);
 		
 		lblIconoAlbacete = new JLabel("");
-		lblIconoAlbacete.setIcon(new ImageIcon(vista.class.getResource("/img/sol.png")));
+		lblIconoAlbacete.setIcon(null);
 		lblIconoAlbacete.setBounds(318, 211, 25, 25);
 		panel_Mapa.add(lblIconoAlbacete);
 		
 		lblIconoCuenca = new JLabel("");
-		lblIconoCuenca.setIcon(new ImageIcon(vista.class.getResource("/img/nube.png")));
+		lblIconoCuenca.setIcon(null);
 		lblIconoCuenca.setBounds(328, 176, 25, 25);
 		panel_Mapa.add(lblIconoCuenca);
 		
 		lblIconoGuadalajara = new JLabel("");
-		lblIconoGuadalajara.setIcon(new ImageIcon(vista.class.getResource("/img/nube.png")));
+		lblIconoGuadalajara.setIcon(null);
 		lblIconoGuadalajara.setBounds(318, 141, 25, 25);
 		panel_Mapa.add(lblIconoGuadalajara);
 		
 		lblIconoBadajoz = new JLabel("");
-		lblIconoBadajoz.setIcon(new ImageIcon(vista.class.getResource("/img/nube.png")));
+		lblIconoBadajoz.setIcon(null);
 		lblIconoBadajoz.setBounds(186, 226, 25, 25);
 		panel_Mapa.add(lblIconoBadajoz);
 		
 		lblIconoToledo = new JLabel("");
-		lblIconoToledo.setIcon(new ImageIcon(vista.class.getResource("/img/sol.png")));
+		lblIconoToledo.setIcon(null);
 		lblIconoToledo.setBounds(258, 176, 25, 25);
 		panel_Mapa.add(lblIconoToledo);
 		
 		lblIconoMadrid = new JLabel("");
-		lblIconoMadrid.setIcon(new ImageIcon(vista.class.getResource("/img/sol.png")));
+		lblIconoMadrid.setIcon(null);
 		lblIconoMadrid.setBounds(271, 141, 25, 25);
 		panel_Mapa.add(lblIconoMadrid);
 		
 		lblIconoMurcia = new JLabel("");
-		lblIconoMurcia.setIcon(new ImageIcon(vista.class.getResource("/img/nieve.png")));
+		lblIconoMurcia.setIcon(null);
 		lblIconoMurcia.setBounds(353, 252, 25, 25);
 		panel_Mapa.add(lblIconoMurcia);
 		
 		lblIconoValencia = new JLabel("");
-		lblIconoValencia.setIcon(new ImageIcon(vista.class.getResource("/img/sol.png")));
+		lblIconoValencia.setIcon(null);
 		lblIconoValencia.setBounds(375, 187, 25, 25);
 		panel_Mapa.add(lblIconoValencia);
 		
 		lblIconoCadiz = new JLabel("");
-		lblIconoCadiz.setIcon(new ImageIcon(vista.class.getResource("/img/nieve.png")));
+		lblIconoCadiz.setIcon(null);
 		lblIconoCadiz.setBounds(204, 316, 25, 25);
 		panel_Mapa.add(lblIconoCadiz);
 		
-		lblIconoCáceres = new JLabel("");
-		lblIconoCáceres.setIcon(new ImageIcon(vista.class.getResource("/img/lluvia.png")));
-		lblIconoCáceres.setBounds(186, 176, 25, 25);
-		panel_Mapa.add(lblIconoCáceres);
+		lblIconoCaceres = new JLabel("");
+		lblIconoCaceres.setIcon(null);
+		lblIconoCaceres.setBounds(186, 176, 25, 25);
+		panel_Mapa.add(lblIconoCaceres);
 		
 		lblIconoCiudadReal = new JLabel("");
-		lblIconoCiudadReal.setIcon(new ImageIcon(vista.class.getResource("/img/sol.png")));
+		lblIconoCiudadReal.setIcon(null);
 		lblIconoCiudadReal.setBounds(271, 211, 25, 25);
 		panel_Mapa.add(lblIconoCiudadReal);
 		
 		lblIconoAvila = new JLabel("");
-		lblIconoAvila.setIcon(new ImageIcon(vista.class.getResource("/img/nube.png")));
+		lblIconoAvila.setIcon(null);
 		lblIconoAvila.setBounds(229, 141, 25, 25);
 		panel_Mapa.add(lblIconoAvila);
 		
 		lblIconoBarcelona = new JLabel("");
-		lblIconoBarcelona.setIcon(new ImageIcon(vista.class.getResource("/img/nube.png")));
+		lblIconoBarcelona.setIcon(null);
 		lblIconoBarcelona.setBounds(471, 91, 25, 25);
 		panel_Mapa.add(lblIconoBarcelona);
 		
 		lblIconoGirona = new JLabel("");
-		lblIconoGirona.setIcon(new ImageIcon(vista.class.getResource("/img/nube.png")));
+		lblIconoGirona.setIcon(null);
 		lblIconoGirona.setBounds(489, 66, 25, 25);
 		panel_Mapa.add(lblIconoGirona);
 		
@@ -450,9 +450,9 @@ public class vista extends JFrame {
 		//Comunidades Autonomas
 		
 		String [] comunidadesAutonomas = {
-	            "Andalucía", "Aragón", "Asturias", "Canarias", "Cantabria", "Castilla y León",
-	            "Castilla-La Mancha", "Cataluña", "Extremadura", "Galicia", "Islas Baleares",
-	            "La Rioja", "Madrid", "Murcia", "Navarra", "País Vasco", "Valencia"
+	            "Andalucia", "Aragon", "Asturias", "Canarias", "Cantabria", "Castilla_y_Leon",
+	            "Castilla-La_Mancha", "Cataluna", "Extremadura", "Galicia", "Islas_Baleares",
+	            "La_Rioja", "Madrid", "Murcia", "Navarra", "Pais_Vasco", "Valencia"
 	    };
 		for (String comunidad : comunidadesAutonomas) {
 	        boxCA.addItem(comunidad);
@@ -485,58 +485,58 @@ public class vista extends JFrame {
 	 public ArrayList<String> sacarProvincias(String comunidadAutonoma) {
 		    ArrayList<String> provincias = new ArrayList<>();
 
-		    if ("Andalucía".equals(comunidadAutonoma)) {
+		    if ("Andalucia".equals(comunidadAutonoma)) {
 		        provincias.add("Almeria");
-		        provincias.add("Cádiz");
-		        provincias.add("Córdoba");
+		        provincias.add("Cadiz");
+		        provincias.add("Cordoba");
 		        provincias.add("Granada");
 		        provincias.add("Huelva");
-		        provincias.add("Jaén");
-		        provincias.add("Málaga");
+		        provincias.add("Jaen");
+		        provincias.add("Malaga");
 		        provincias.add("Sevilla");
-		    } else if ("Aragón".equals(comunidadAutonoma)) {
+		    } else if ("Aragon".equals(comunidadAutonoma)) {
 		        provincias.add("Huesca");
 		        provincias.add("Teruel");
 		        provincias.add("Zaragoza");
 		    } else if ("Asturias".equals(comunidadAutonoma)) {
 		        provincias.add("Asturias");
 		    } else if ("Canarias".equals(comunidadAutonoma)) {
-		        provincias.add("Las Palmas");
-		        provincias.add("Santa Cruz de Tenerife");
+		        provincias.add("Las_Palmas");
+		        provincias.add("Santa_Cruz_de_Tenerife");
 		    } else if ("Cantabria".equals(comunidadAutonoma)) {
 		        provincias.add("Cantabria");
-		    } else if ("Castilla y León".equals(comunidadAutonoma)) {
-		        provincias.add("Ávila");
+		    } else if ("Castilla_y_Leon".equals(comunidadAutonoma)) {
+		        provincias.add("Avila");
 		        provincias.add("Burgos");
-		        provincias.add("León");
+		        provincias.add("Leon");
 		        provincias.add("Palencia");
 		        provincias.add("Salamanca");
 		        provincias.add("Segovia");
 		        provincias.add("Soria");
 		        provincias.add("Valladolid");
 		        provincias.add("Zamora");
-		    } else if ("Castilla-La Mancha".equals(comunidadAutonoma)) {
+		    } else if ("Castilla-La_Mancha".equals(comunidadAutonoma)) {
 		        provincias.add("Albacete");
-		        provincias.add("Ciudad Real");
+		        provincias.add("Ciudad_Real");
 		        provincias.add("Cuenca");
 		        provincias.add("Guadalajara");
 		        provincias.add("Toledo");
-		    } else if ("Cataluña".equals(comunidadAutonoma)) {
+		    } else if ("Cataluna".equals(comunidadAutonoma)) {
 		        provincias.add("Barcelona");
 		        provincias.add("Girona");
 		        provincias.add("Lleida");
 		        provincias.add("Tarragona");
 		    } else if ("Extremadura".equals(comunidadAutonoma)) {
 		        provincias.add("Badajoz");
-		        provincias.add("Cáceres");
+		        provincias.add("Caceres");
 		    } else if ("Galicia".equals(comunidadAutonoma)) {
-		        provincias.add("A Coruña");
+		        provincias.add("A_Coruna");
 		        provincias.add("Lugo");
 		        provincias.add("Ourense");
 		        provincias.add("Pontevedra");
-		    } else if ("Islas Baleares".equals(comunidadAutonoma)) {
+		    } else if ("Islas_Baleares".equals(comunidadAutonoma)) {
 		        provincias.add("Islas Baleares");
-		    } else if ("La Rioja".equals(comunidadAutonoma)) {
+		    } else if ("La_Rioja".equals(comunidadAutonoma)) {
 		        provincias.add("La Rioja");
 		    } else if ("Madrid".equals(comunidadAutonoma)) {
 		        provincias.add("Madrid");
@@ -544,13 +544,13 @@ public class vista extends JFrame {
 		        provincias.add("Murcia");
 		    } else if ("Navarra".equals(comunidadAutonoma)) {
 		        provincias.add("Navarra");
-		    } else if ("País Vasco".equals(comunidadAutonoma)) {
-		        provincias.add("Álava");
-		        provincias.add("Gipuzkoa");
-		        provincias.add("Bizkaia");
+		    } else if ("Pais_Vasco".equals(comunidadAutonoma)) {
+		        provincias.add("Alava");
+		        provincias.add("Vizcaya");
+		        
 		    } else if ("Valencia".equals(comunidadAutonoma)) {
 		        provincias.add("Alicante");
-		        provincias.add("Castellón");
+		        provincias.add("Castellon");
 		        provincias.add("Valencia");
 		    }
 
